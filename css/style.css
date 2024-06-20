@@ -1,0 +1,318 @@
+header{
+	background-image: url('../img/DSC03305.JPG');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+/*Мероприятия*/
+.eventsBackGround_1, .eventsTitle_1, .eventsText_1, .eventsDate_1{
+	opacity: 0; 
+	transition: .5s;
+}
+
+.eventsBlock_1:hover .eventsBackGround_1, .eventsBlock_1:hover .eventsTitle_1,.eventsBlock_1:hover .eventsText_1, .eventsBlock_1:hover .eventsDate_1,
+.eventsBlock_2:hover .eventsBackGround_1, .eventsBlock_2:hover .eventsTitle_1,.eventsBlock_2:hover .eventsText_1, .eventsBlock_2:hover .eventsDate_1,
+.eventsBlock_3:hover .eventsBackGround_1, .eventsBlock_3:hover .eventsTitle_1,.eventsBlock_3:hover .eventsText_1, .eventsBlock_3:hover .eventsDate_1,
+.eventsBlock_4:hover .eventsBackGround_1, .eventsBlock_4:hover .eventsTitle_1,.eventsBlock_4:hover .eventsText_1, .eventsBlock_4:hover .eventsDate_1,
+.eventsBlock_5:hover .eventsBackGround_1, .eventsBlock_5:hover .eventsTitle_1,.eventsBlock_5:hover .eventsText_1, .eventsBlock_5:hover .eventsDate_1{
+	opacity: 1;
+	z-index: 5;
+}
+
+.eventsBlock_1:hover ~ .eventsBlock_2, .eventsBlock_1:hover ~ .eventsBlock_3, .eventsBlock_1:hover ~ .eventsBlock_4, .eventsBlock_1:hover ~ .eventsBlock_5{
+	transition: .5s;
+	opacity: .25;
+}
+.eventsBlock_1:hover ~ .eventsBlock_2{
+	z-index: 4;
+}
+.eventsBlock_1:hover ~ .eventsBlock_3{
+	z-index: 3;
+}
+.eventsBlock_1:hover ~ .eventsBlock_4{
+	z-index: 2;
+}
+.eventsBlock_1:hover ~ .eventsBlock_5{
+	z-index: 1;
+}
+
+.eventsBlock_2:hover ~ .eventsBlock_3, .eventsBlock_2:hover ~ .eventsBlock_4, .eventsBlock_2:hover ~ .eventsBlock_5{
+	transition: .5s;
+	opacity: .25;
+}
+.eventsBlock_2:hover ~ .eventsBlock_3{
+	z-index: 3;
+}
+.eventsBlock_2:hover ~ .eventsBlock_4{
+	z-index: 2;
+}
+.eventsBlock_2:hover ~ .eventsBlock_5{
+	z-index: 1;
+}
+
+.eventsBlock_3:hover ~ .eventsBlock_4, .eventsBlock_3:hover ~ .eventsBlock_5{
+	transition: .5s;
+	opacity: .25;
+}
+.eventsBlock_3:hover ~ .eventsBlock_4{
+	z-index: 2;
+}
+.eventsBlock_3:hover ~ .eventsBlock_5{
+	z-index: 1;
+}
+
+.eventsBlock_4:hover ~ .eventsBlock_5{
+	transition: .5s;
+	opacity: .25;
+	z-index: 1;
+}
+/*Мероприятия*/
+
+/*Фотогаллерея*/
+.photoBack, .photoText{
+	opacity: 0;
+}
+.photo:hover .photoBack, .photo:hover .photoText{
+	opacity: 1;
+}
+/*Фотогаллерея*/
+
+/*Отзывы*/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap');
+/*html, body {
+  color: white;
+  background-color: #1e1e23;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+}
+html h1, body h1 {
+  margin-bottom: 0;
+}
+html h2, body h2 {
+  margin: 0;
+  opacity: 0.4;
+}*/
+.line, .carousel, .carousel li, .carousel li img {
+  width: 100%;
+}
+.flex, .center, .carousel ul, .carousel-wrapper {
+  display: flex;
+}
+.center, .carousel ul {
+  align-items: center;
+  justify-content: center;
+}
+.carousel-wrapper {
+  position: relative;
+  max-width: 100%;
+}
+.carousel-wrapper input {
+  display: none;
+}
+.carousel {
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+.carousel ul {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 500%;
+  transition: left 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.nav-dot {
+  position: absolute;
+  cursor: pointer;
+  margin-left: -7.5px;
+  width: 15px;
+  bottom: -22.5px;
+  height: 15px;
+  opacity: 0.5;
+  background-color: #53FFAB;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.nav-dot:hover {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+.nav-dot:active {
+  transform: scale(0.9);
+}
+#slide1:checked ~ .carousel ul {
+  left: 0%;
+}
+#slide1:checked ~ .nav-dot[for=slide1] {
+  opacity: 1;
+}
+#slide2:checked ~ .carousel ul {
+  left: -100%;
+}
+#slide2:checked ~ .nav-dot[for=slide2] {
+  opacity: 1;
+}
+#slide3:checked ~ .carousel ul {
+  left: -200%;
+}
+#slide3:checked ~ .nav-dot[for=slide3] {
+  opacity: 1;
+}
+#slide4:checked ~ .carousel ul {
+  left: -300%;
+}
+#slide4:checked ~ .nav-dot[for=slide4] {
+  opacity: 1;
+}
+.nav-dot[for=slide1] {
+  left: 30%;
+}
+.nav-dot[for=slide2] {
+  left: 40%;
+}
+.nav-dot[for=slide3] {
+  left: 50%;
+}
+.nav-dot[for=slide4] {
+  left: 60%;
+}
+.nav-dot[for=slide5] {
+  left: 70%;
+}
+@media (min-width: 768px) {
+    .nav-dot[for=slide1] {
+      left: 35%;
+    }
+    .nav-dot[for=slide2] {
+      left: 42.5%;
+    }
+    .nav-dot[for=slide3] {
+      left: 50%;
+    }
+    .nav-dot[for=slide4] {
+      left: 57.5%;
+    }
+    .nav-dot[for=slide5] {
+      left: 65%;
+    }
+}
+@media (min-width: 1024px) {
+    .nav-dot[for=slide1] {
+      left: 40%;
+    }
+    .nav-dot[for=slide2] {
+      left: 45%;
+    }
+    .nav-dot[for=slide3] {
+      left: 50%;
+    }
+    .nav-dot[for=slide4] {
+      left: 55%;
+    }
+    .nav-dot[for=slide5] {
+      left: 60%;
+    }
+}
+#slide5:checked ~ .carousel ul {
+  left: -400%;
+}
+#slide5:checked ~ .nav-dot[for=slide5] {
+  opacity: 1;
+}
+.left-arrow, .right-arrow {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  font-weight: bolder;
+/*  text-shadow: 0 0 7.5px rgba(0, 0, 0, 0.7);*/
+  top: 101.5%;
+  z-index: 1;
+  opacity: 0.7;
+  margin-top: -25px;
+  height: 50px;
+  font-size: 50px;
+  transition: 0.2s;
+  color: #53FFAB;
+}
+@media (min-width: 768px) {
+  .left-arrow, .right-arrow {
+    top: 101.4%;
+  }
+}
+@media (min-width: 1024px) {
+  .left-arrow, .right-arrow {
+    top: 102%;
+  }
+}
+.left-arrow:hover, .right-arrow:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+.left-arrow:active, .right-arrow:active {
+  transform: scale(0.9);
+}
+  .left-arrow {
+    left: 12.5%;
+  }
+  .right-arrow {
+    right: 12.5%;
+  }
+@media (min-width: 768px) {
+    .left-arrow {
+      left: 23%;
+    }
+    .right-arrow {
+      right: 23%;
+    }
+}
+@media (min-width: 1024px) {
+    .left-arrow {
+      left: 30%;
+    }
+    .right-arrow {
+      right: 30%;
+    }
+}
+#slide1:checked ~ .left-arrow[for=slide5], #slide1:checked ~ .right-arrow[for=slide2] {
+  display: block;
+}
+#slide2:checked ~ .left-arrow[for=slide1], #slide2:checked ~ .right-arrow[for=slide3] {
+  display: block;
+}
+#slide3:checked ~ .left-arrow[for=slide2], #slide3:checked ~ .right-arrow[for=slide4] {
+  display: block;
+}
+#slide4:checked ~ .left-arrow[for=slide3], #slide4:checked ~ .right-arrow[for=slide5] {
+  display: block;
+}
+#slide5:checked ~ .left-arrow[for=slide4], #slide5:checked ~ .right-arrow[for=slide1] {
+  display: block;
+}
+.signature {
+  margin-top: 100px;
+  bottom: 0;
+  font-family: "Quicksand";
+  color: #9696aa;
+  text-shadow: 0 2.5px rgba(0, 0, 0, 0.25);
+}
+.signature .name {
+  color: white;
+}
+.signature .dot {
+  margin: 0 5px;
+}
+.signature a {
+  color: white;
+  text-decoration: underline;
+}
+
+/*Отзывы*/

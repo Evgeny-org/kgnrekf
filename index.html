@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/uikit.min.css">
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.1/dist/cdn.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'CirceRegular';
+            src: url('fonts/Circe-Regular.ttf');
+        }
+
+        @font-face {
+            font-family: 'CirceBold';
+            src: url('fonts/Circe-Bold.ttf');
+        }
+
+        @font-face {
+            font-family: 'CirceItalic';
+            src: url('fonts/Circe-italic.otf');
+        }
+
+        ::selection {
+            background: rgba(83, 255, 171, .75);
+        }
+    </style>
+</head>
+
+<body style="font-family: CirceRegular;">
+    <header class="text-white relative z-100min-[0px]:pl-0 min-[560px]:pl-24 md:pl-48" x-data="{ open: false }">
+        <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none"></div> <!-- заполняет header и даёт зелёный прозрачный фон ;) --->
+        <div class="w-32 h-full absolute top-0 left-0 z-50 bg-[#23563D] min-[0px]:hidden md:block">
+            <div class="h-[90%] flex flex-col justify-end lg:justify-center min-[1440px]:justify-end gap-10">
+                <a class="w-12 mx-auto" href="">
+                    <svg class="fill-white hover:fill-[#53FFAB] transition duration-300" viewBox="0 0 34 23" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32.9686 3.57281C32.7799 2.89967 32.4124 2.29025 31.905 1.80932C31.3833 1.31361 30.7439 0.959013 30.0471 0.779005C27.4394 0.0916634 16.9918 0.0916636 16.9918 0.0916636C12.6363 0.0421092 8.28188 0.260062 3.95311 0.744291C3.25632 0.937598 2.61809 1.30012 2.09521 1.7996C1.58144 2.29393 1.2093 2.90352 1.0149 3.57142C0.547919 6.08715 0.321025 8.64156 0.337283 11.2002C0.32062 13.7566 0.546957 16.3101 1.0149 18.829C1.20514 19.4941 1.57589 20.1009 2.09104 20.5911C2.6062 21.0813 3.24772 21.4354 3.95311 21.6228C6.59556 22.3088 16.9918 22.3088 16.9918 22.3088C21.3528 22.3584 25.7128 22.1404 30.0471 21.6561C30.7439 21.4761 31.3833 21.1215 31.905 20.6258C32.4188 20.1357 32.784 19.5261 32.9673 18.8623C33.4464 16.3476 33.6794 13.7921 33.6629 11.2322C33.699 8.66136 33.4663 6.09384 32.9686 3.57142V3.57281ZM13.6703 15.9547V6.44714L22.3628 11.2016L13.6703 15.9547Z" />
+                    </svg>
+                </a>
+                <a class="w-12 mx-auto" href="">
+                    <svg class="fill-white hover:fill-[#53FFAB] transition duration-300" viewBox="0 0 34 21" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M33.6144 1.675C33.8978 2.44089 33.0273 4.22796 31.0029 7.03623C30.7195 7.41917 30.3551 7.92976 29.9097 8.568C28.9785 9.75939 28.4522 10.5466 28.3307 10.9295C28.1283 11.4401 28.2092 11.9294 28.5736 12.3975C28.7761 12.6527 29.2417 13.1633 29.9705 13.9292H30.0312V13.9931C31.6912 15.5674 32.8046 16.9077 33.3714 18.014L33.4929 18.2693L33.6144 18.748V19.3543L33.1893 19.833L32.1568 20.0563L27.7234 20.184C27.44 20.2265 27.1059 20.184 26.7213 20.0563C26.3367 19.9287 26.0431 19.8011 25.8407 19.6734L25.4763 19.4181C25.1119 19.1628 24.707 18.7799 24.2617 18.2693C23.8163 17.7587 23.4215 17.2906 23.0774 16.8651C22.7332 16.4396 22.379 16.0886 22.0146 15.812C21.6502 15.5355 21.3263 15.4397 21.0429 15.5248C21.0024 15.5248 20.9518 15.5461 20.891 15.5887C20.8303 15.6312 20.7291 15.7269 20.5874 15.8759C20.4457 16.0248 20.3242 16.2056 20.223 16.4184C20.1218 16.6311 20.0307 16.9396 19.9497 17.3438C19.8687 17.748 19.8282 18.2267 19.8282 18.7799C19.8282 18.9501 19.808 19.1096 19.7675 19.2585C19.727 19.4075 19.6865 19.5245 19.646 19.6096L19.5853 19.6734C19.3424 19.9287 19.0185 20.0563 18.6136 20.0563H16.6702C15.8199 20.1414 14.9595 20.0563 14.089 19.8011C13.2186 19.5458 12.4594 19.216 11.8116 18.8118C11.1638 18.4076 10.5767 18.0033 10.0504 17.5991C9.52402 17.1949 9.11915 16.8439 8.83573 16.546L8.41061 16.0993C8.28914 16.0142 8.12719 15.844 7.92475 15.5887C7.72231 15.3334 7.30731 14.7802 6.67974 13.9292C6.05218 13.0782 5.43474 12.1634 4.82742 11.1848C4.2201 10.2062 3.51156 8.91904 2.7018 7.32343C1.89204 5.72783 1.14301 4.07904 0.454716 2.37706C0.37374 2.16432 0.333252 1.99412 0.333252 1.86647C0.333252 1.73882 0.353496 1.63245 0.393984 1.54735L0.454716 1.48353C0.616668 1.22823 0.940572 1.10058 1.42643 1.10058H6.22425C6.34572 1.10058 6.46718 1.13249 6.58865 1.19632L6.89231 1.35588L6.95304 1.4197C7.15548 1.54735 7.29719 1.73882 7.37816 1.99412C7.62109 2.58981 7.89438 3.21741 8.19804 3.87693C8.5017 4.53645 8.73451 5.0364 8.89646 5.3768L9.13939 5.88739C9.50378 6.61073 9.83781 7.23833 10.1415 7.7702C10.4451 8.30207 10.7184 8.71693 10.9613 9.01477C11.2043 9.31262 11.4472 9.54664 11.6901 9.71684C11.9331 9.88704 12.1355 9.97214 12.2975 9.97214C12.4594 9.97214 12.6214 9.95086 12.7833 9.90831L12.844 9.81257L13.0566 9.39772L13.2995 8.568L13.4514 7.10005V4.80238C13.4109 4.33434 13.3501 3.89821 13.2692 3.49399C13.1882 3.08977 13.1072 2.80256 13.0262 2.63236L12.9655 2.44089C12.6821 2.01539 12.176 1.73882 11.4472 1.61117C11.3257 1.61117 11.3662 1.46225 11.5687 1.1644C11.7711 0.951658 11.9938 0.78146 12.2367 0.653812C12.844 0.313416 14.2206 0.164493 16.3665 0.207043C17.2977 0.207043 18.0872 0.292142 18.735 0.462339C18.9375 0.504889 19.1197 0.57935 19.2816 0.685724C19.4436 0.792097 19.565 0.94102 19.646 1.13249C19.727 1.32397 19.7877 1.51544 19.8282 1.70691C19.8687 1.89838 19.889 2.17495 19.889 2.53662V3.5259C19.8485 3.86629 19.8282 4.29179 19.8282 4.80238V6.33416C19.8282 6.46181 19.8181 6.7171 19.7979 7.10005C19.7776 7.48299 19.7675 7.78084 19.7675 7.99359C19.7675 8.20633 19.7877 8.45099 19.8282 8.72756C19.8687 9.00414 19.9396 9.23816 20.0408 9.42963C20.142 9.6211 20.2736 9.75939 20.4355 9.84449C20.5165 9.88704 20.6076 9.91895 20.7088 9.94022C20.8101 9.9615 20.9619 9.89767 21.1643 9.74875C21.3668 9.59983 21.5894 9.38708 21.8324 9.11051C22.0753 8.83394 22.379 8.41908 22.7434 7.86594C23.1077 7.3128 23.4924 6.67455 23.8973 5.95121C24.5856 4.67473 25.2131 3.29188 25.78 1.80265C25.8204 1.71755 25.871 1.62181 25.9318 1.51544C25.9925 1.40906 26.0634 1.3346 26.1443 1.29205H26.2051L26.2658 1.22823L26.5087 1.1644H26.8731L31.8531 1.10058C32.2985 1.05803 32.673 1.07931 32.9767 1.1644C33.2803 1.2495 33.4524 1.35588 33.4929 1.48353L33.6144 1.675Z" />
+                    </svg>
+                </a>
+                <a class="w-12 mx-auto" href="">
+                    <svg class="fill-white hover:fill-[#53FFAB] transition duration-300" viewBox="0 0 24 19" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.6112 0.427928L1.92656 7.66869C0.583162 8.1834 0.590934 8.89826 1.68008 9.21703L6.73391 10.7209L18.427 3.68347C18.9799 3.36257 19.4851 3.5352 19.0698 3.88681L9.59612 12.0426H9.5939L9.59612 12.0437L9.2475 17.0127C9.75821 17.0127 9.98359 16.7893 10.27 16.5256L12.7248 14.2486L17.8308 17.8462C18.7723 18.3408 19.4484 18.0866 19.6827 17.0149L23.0345 1.94661C23.3776 0.634444 22.5094 0.0403137 21.6112 0.427928Z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <!-- Фиксированная навигация -->
+        <nav class="flex justify-between items-center mx-auto py-7 fixed w-full right-0 px-10 z-40" id="scrollNav">
+            <!-- Фиксированное лого -->
+            <a class="block min-[0px]:w-[200px] md:w-[300px] min-[0px]:py-2 md:py-0 min-[0px]:px-0 md:px-7 opacity-0" id="Logo2" href="#">
+                <img src="img/Logo_2.png" alt="">
+            </a>
+            <style>
+                .Logo2In {
+                    animation: in .5s ease;
+                    opacity: 1;
+                }
+
+                @keyframes in {
+                    from {
+                        opacity: 0;
+                    }
+
+                    to {
+                        opacity: 1;
+                    }
+                }
+            </style>
+            <script>
+                window.addEventListener('scroll', function() {
+                    var block = document.getElementById('Logo2');
+                    var section = document.getElementById('aboutSection');
+                    var sectionTop = section.offsetTop;
+                    var sectionHeight = section.offsetHeight;
+                    var scrollPosition = window.scrollY;
+
+                    if (scrollPosition > sectionTop - 5) {
+                        block.classList.add('Logo2In');
+                    } else {
+                        block.classList.remove('Logo2In');
+                    }
+                });
+            </script>
+            <!-- Фиксированное лого -->
+            <button @click="open = !open" class="2xl:hidden text-white w-[25px] h-[25px]">
+                <div class="w-full h-full scale-150">
+                    <span aria-hidden="true" class="block absolute top-1/2 left-1/4 h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': open,' -translate-y-1.5': !open}"></span>
+                    <span aria-hidden="true" class="block absolute top-1/2 left-1/4 h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'opacity-0': open } "></span>
+                    <span aria-hidden="true" class="block absolute top-1/2 left-1/4 h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
+                </div>
+            </button>
+            <ul class="text-2xl min-[0px]:hidden 2xl:flex justify-end gap-5">
+                <li>
+                    <a href="#aboutSection" class="py-3 px-7 hover:bg-[rgba(83,255,171,.75)] transition hover:text-white whitespace-nowrap" style="text-decoration: none;">О нас</a>
+                </li>
+                <li>
+                    <a href="#menu" class="py-3 px-7 hover:bg-[rgba(83,255,171,.75)] transition hover:text-white" style="text-decoration: none;">Меню</a>
+                </li>
+                <li>
+                    <a href="#events" class="py-3 px-7 hover:bg-[rgba(83,255,171,.75)] transition hover:text-white" style="text-decoration: none;">Мероприятия</a>
+                </li>
+                <li>
+                    <a href="#stocks" class="py-3 px-7 hover:bg-[rgba(83,255,171,.75)] transition hover:text-white" style="text-decoration: none;">Акции</a>
+                </li>
+                <li>
+                    <a href="#reviews" class="py-3 px-7 hover:bg-[rgba(83,255,171,.75)] transition hover:text-white" style="text-decoration: none;">Отзывы</a>
+                </li>
+                <li>
+                    <a href="#photoGallery" class="py-3 px-7 hover:bg-[rgba(83,255,171,.75)] transition hover:text-white" style="text-decoration: none;">Фотогаллерея</a>
+                </li>
+                <li>
+                    <a href="#contacts" class="py-3 px-7 hover:bg-[rgba(83,255,171,.75)] transition hover:text-white" style="text-decoration: none;">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="fixed top-0 right-0 2xl:hidden z-30" x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="transform translate-x-[100%]" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform translate-x-[100%]">
+            <ul class="text-2xl text-center mt-[100px] max-h-[90vh] overflow-y-auto">
+                <li class="flex justify-center gap-10 py-10 bg-[#23563D] max-[0px]:block md:hidden">
+                    <a class="w-12" href="">
+                        <svg class="fill-white hover:fill-[#53FFAB] transition duration-300" viewBox="0 0 34 23" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32.9686 3.57281C32.7799 2.89967 32.4124 2.29025 31.905 1.80932C31.3833 1.31361 30.7439 0.959013 30.0471 0.779005C27.4394 0.0916634 16.9918 0.0916636 16.9918 0.0916636C12.6363 0.0421092 8.28188 0.260062 3.95311 0.744291C3.25632 0.937598 2.61809 1.30012 2.09521 1.7996C1.58144 2.29393 1.2093 2.90352 1.0149 3.57142C0.547919 6.08715 0.321025 8.64156 0.337283 11.2002C0.32062 13.7566 0.546957 16.3101 1.0149 18.829C1.20514 19.4941 1.57589 20.1009 2.09104 20.5911C2.6062 21.0813 3.24772 21.4354 3.95311 21.6228C6.59556 22.3088 16.9918 22.3088 16.9918 22.3088C21.3528 22.3584 25.7128 22.1404 30.0471 21.6561C30.7439 21.4761 31.3833 21.1215 31.905 20.6258C32.4188 20.1357 32.784 19.5261 32.9673 18.8623C33.4464 16.3476 33.6794 13.7921 33.6629 11.2322C33.699 8.66136 33.4663 6.09384 32.9686 3.57142V3.57281ZM13.6703 15.9547V6.44714L22.3628 11.2016L13.6703 15.9547Z" />
+                        </svg>
+                    </a>
+                    <a class="w-12" href="">
+                        <svg class="fill-white hover:fill-[#53FFAB] transition duration-300" viewBox="0 0 34 21" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M33.6144 1.675C33.8978 2.44089 33.0273 4.22796 31.0029 7.03623C30.7195 7.41917 30.3551 7.92976 29.9097 8.568C28.9785 9.75939 28.4522 10.5466 28.3307 10.9295C28.1283 11.4401 28.2092 11.9294 28.5736 12.3975C28.7761 12.6527 29.2417 13.1633 29.9705 13.9292H30.0312V13.9931C31.6912 15.5674 32.8046 16.9077 33.3714 18.014L33.4929 18.2693L33.6144 18.748V19.3543L33.1893 19.833L32.1568 20.0563L27.7234 20.184C27.44 20.2265 27.1059 20.184 26.7213 20.0563C26.3367 19.9287 26.0431 19.8011 25.8407 19.6734L25.4763 19.4181C25.1119 19.1628 24.707 18.7799 24.2617 18.2693C23.8163 17.7587 23.4215 17.2906 23.0774 16.8651C22.7332 16.4396 22.379 16.0886 22.0146 15.812C21.6502 15.5355 21.3263 15.4397 21.0429 15.5248C21.0024 15.5248 20.9518 15.5461 20.891 15.5887C20.8303 15.6312 20.7291 15.7269 20.5874 15.8759C20.4457 16.0248 20.3242 16.2056 20.223 16.4184C20.1218 16.6311 20.0307 16.9396 19.9497 17.3438C19.8687 17.748 19.8282 18.2267 19.8282 18.7799C19.8282 18.9501 19.808 19.1096 19.7675 19.2585C19.727 19.4075 19.6865 19.5245 19.646 19.6096L19.5853 19.6734C19.3424 19.9287 19.0185 20.0563 18.6136 20.0563H16.6702C15.8199 20.1414 14.9595 20.0563 14.089 19.8011C13.2186 19.5458 12.4594 19.216 11.8116 18.8118C11.1638 18.4076 10.5767 18.0033 10.0504 17.5991C9.52402 17.1949 9.11915 16.8439 8.83573 16.546L8.41061 16.0993C8.28914 16.0142 8.12719 15.844 7.92475 15.5887C7.72231 15.3334 7.30731 14.7802 6.67974 13.9292C6.05218 13.0782 5.43474 12.1634 4.82742 11.1848C4.2201 10.2062 3.51156 8.91904 2.7018 7.32343C1.89204 5.72783 1.14301 4.07904 0.454716 2.37706C0.37374 2.16432 0.333252 1.99412 0.333252 1.86647C0.333252 1.73882 0.353496 1.63245 0.393984 1.54735L0.454716 1.48353C0.616668 1.22823 0.940572 1.10058 1.42643 1.10058H6.22425C6.34572 1.10058 6.46718 1.13249 6.58865 1.19632L6.89231 1.35588L6.95304 1.4197C7.15548 1.54735 7.29719 1.73882 7.37816 1.99412C7.62109 2.58981 7.89438 3.21741 8.19804 3.87693C8.5017 4.53645 8.73451 5.0364 8.89646 5.3768L9.13939 5.88739C9.50378 6.61073 9.83781 7.23833 10.1415 7.7702C10.4451 8.30207 10.7184 8.71693 10.9613 9.01477C11.2043 9.31262 11.4472 9.54664 11.6901 9.71684C11.9331 9.88704 12.1355 9.97214 12.2975 9.97214C12.4594 9.97214 12.6214 9.95086 12.7833 9.90831L12.844 9.81257L13.0566 9.39772L13.2995 8.568L13.4514 7.10005V4.80238C13.4109 4.33434 13.3501 3.89821 13.2692 3.49399C13.1882 3.08977 13.1072 2.80256 13.0262 2.63236L12.9655 2.44089C12.6821 2.01539 12.176 1.73882 11.4472 1.61117C11.3257 1.61117 11.3662 1.46225 11.5687 1.1644C11.7711 0.951658 11.9938 0.78146 12.2367 0.653812C12.844 0.313416 14.2206 0.164493 16.3665 0.207043C17.2977 0.207043 18.0872 0.292142 18.735 0.462339C18.9375 0.504889 19.1197 0.57935 19.2816 0.685724C19.4436 0.792097 19.565 0.94102 19.646 1.13249C19.727 1.32397 19.7877 1.51544 19.8282 1.70691C19.8687 1.89838 19.889 2.17495 19.889 2.53662V3.5259C19.8485 3.86629 19.8282 4.29179 19.8282 4.80238V6.33416C19.8282 6.46181 19.8181 6.7171 19.7979 7.10005C19.7776 7.48299 19.7675 7.78084 19.7675 7.99359C19.7675 8.20633 19.7877 8.45099 19.8282 8.72756C19.8687 9.00414 19.9396 9.23816 20.0408 9.42963C20.142 9.6211 20.2736 9.75939 20.4355 9.84449C20.5165 9.88704 20.6076 9.91895 20.7088 9.94022C20.8101 9.9615 20.9619 9.89767 21.1643 9.74875C21.3668 9.59983 21.5894 9.38708 21.8324 9.11051C22.0753 8.83394 22.379 8.41908 22.7434 7.86594C23.1077 7.3128 23.4924 6.67455 23.8973 5.95121C24.5856 4.67473 25.2131 3.29188 25.78 1.80265C25.8204 1.71755 25.871 1.62181 25.9318 1.51544C25.9925 1.40906 26.0634 1.3346 26.1443 1.29205H26.2051L26.2658 1.22823L26.5087 1.1644H26.8731L31.8531 1.10058C32.2985 1.05803 32.673 1.07931 32.9767 1.1644C33.2803 1.2495 33.4524 1.35588 33.4929 1.48353L33.6144 1.675Z" />
+                        </svg>
+                    </a>
+                    <a class="w-12" href="">
+                        <svg class="fill-white hover:fill-[#53FFAB] transition duration-300" viewBox="0 0 24 19" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.6112 0.427928L1.92656 7.66869C0.583162 8.1834 0.590934 8.89826 1.68008 9.21703L6.73391 10.7209L18.427 3.68347C18.9799 3.36257 19.4851 3.5352 19.0698 3.88681L9.59612 12.0426H9.5939L9.59612 12.0437L9.2475 17.0127C9.75821 17.0127 9.98359 16.7893 10.27 16.5256L12.7248 14.2486L17.8308 17.8462C18.7723 18.3408 19.4484 18.0866 19.6827 17.0149L23.0345 1.94661C23.3776 0.634444 22.5094 0.0403137 21.6112 0.427928Z" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="bg-[#23563D]">
+                    <a href="#aboutSection" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
+                        О нас
+                    </a>
+                </li>
+                <li class="bg-[#23563D]">
+                    <a href="#menu" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
+                        Меню
+                    </a>
+                </li>
+                <li class="bg-[#23563D]">
+                    <a href="#events" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
+                        Мероприятия
+                    </a>
+                </li>
+                <li class="bg-[#23563D]">
+                    <a href="#stocks" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
+                        Акции
+                    </a>
+                </li>
+                <li class="bg-[#23563D]">
+                    <a href="#reviews" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
+                        Отзывы
+                    </a>
+                </li>
+                <li class="bg-[#23563D]">
+                    <a href="#photoGallery" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
+                        Фотогаллерея
+                    </a>
+                </li>
+                <li class="bg-[#23563D]">
+                    <a href="#contacts" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
+                        Контакты
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <style>
+            #scrollNav {
+                background-color: transparent;
+                transition: background-color 0.5s ease;
+            }
+
+            #scrollNav.scrolled {
+                background-color: #23563D;
+            }
+        </style>
+        <script>
+            window.addEventListener('scroll', function() {
+                var scrollNav = document.getElementById('scrollNav');
+                if (window.scrollY > 0) {
+                    scrollNav.classList.add('scrolled');
+                } else {
+                    scrollNav.classList.remove('scrolled');
+                }
+            });
+        </script>
+
+        <!-- Фиксированная навигация -->
+        <h1 class="ml-auto min-[0px]:mr-auto min-[560px]:mr-20 
+
+        max-w-[1400px]
+        min-[1366px]:max-w-[900px] 
+        min-[1440px]:max-w-[1000px]
+        min-[1600px]:max-w-[1100px] 
+        min-[1920px]:max-w-[1400px] 
+
+        pt-[150px] 
+        min-[540px]:pt-[200px] 
+        min-[800px]:pt-[300px] 
+        min-[1024px]:pt-[200px] 
+        min-[1366px]:pt-[200px] 
+        min-[1440px]:pt-[300px] 
+        min-[1600px]:pt-[350px] 
+
+        max-[560px]:text-[38px] text-[54px] text-wrap relative z-20 min-[0px]:text-center lg:text-left px-10 sm:px-0 mb-10" style="font-family: CirceBold;">
+             <p><span class="text-[#53FFAB]">MOMO ART CAFE</span> – кафе-арт-галерея с уникальным дизайном и авторским меню.</p>
+        </h1>
+
+        <!-- class="bg-[rgba(35,86,61,.75)] inline" -->
+
+        <div class="ml-auto min-[0px]:mr-auto min-[560px]:mr-20 
+
+        max-w-[1400px]
+        min-[1366px]:max-w-[900px] 
+        min-[1440px]:max-w-[1000px] 
+        min-[1600px]:max-w-[1100px] 
+        min-[1920px]:max-w-[1400px] 
+
+        pb-[350px] 
+        min-[540px]:pb-[400px] 
+        min-[800px]:pb-[500px] 
+        min-[1024px]:pb-[400px] 
+        min-[1366px]:pb-[400px] 
+        min-[1440px]:pb-[400px] 
+        min-[1600px]:pb-[500px]  
+
+        text-wrap relative z-20 min-[0px]:text-center lg:text-left px-10 sm:px-0 mb-10">
+            <a href="#" class="max-[560px]:text-2xl text-3xl px-10 py-3 border-2 border-[#53FFAB] bg-[rgba(83,255,171,.25)] hover:bg-[rgba(83,255,171,1)] transition hover:text-[#23563D]" style="text-decoration: none;">Резерв стола</a>
+        </div>
+
+        <a class="absolute bottom-0 min-[0px]:-translate-x-1/2 min-[0px]:left-1/2 lg:translate-x-0 lg:left-0 z-20 mb-16 min-[0px]:ml-0 md:ml-10 lg:ml-48 min-[0px]:w-[48] lg:w-96" href="#">
+            <img src="img/Logo.png" alt="">
+        </a>
+        <div class="absolute min-[0px]:hidden lg:block lg:bottom-[30%] xl:bottom-10 left-1/2 translate-x-[-50%] z-20 downArrow">
+            <svg class="min-[0px]:w-20 lg:w-10 cursor-pointer transition duration-300 opacity-50 hover:opacity-100 text-white hover:text-[#53FFAB]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" onclick="scrollToSection()">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+            </svg>
+        </div>
+        <style>
+            .downArrow {
+                animation: downArrow 3s infinite;
+                animation-timing-function: ease-in-out;
+            }
+
+            @keyframes downArrow {
+                0% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(1rem);
+                }
+
+                100% {
+                    transform: translateY(0);
+                }
+            }
+        </style>
+        <script>
+            function scrollToSection() {
+                const section = document.getElementById('aboutSection');
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        </script>
+    </header>
+    <main>
+        <!-- min-[0px]: md: -->
+        <section class="max-w-[1325px] mx-auto flex min-[0px]:flex-col md:flex-row px-10 sm:px-20 md:px-10 pt-[200px]" id="aboutSection">
+            <!-- О нас -->
+            <div class="min-[0px]:w-auto md:w-[15%] relative">
+                <div class="absolute min-[0px]:left-1/2 md:left-0 min-[0px]:translate-x-[-50%] md:translate-x-0 flex min-[0px]:flex-col md:flex-row items-center">
+                    <h4 class="text-xl text-[#23563D] min-[0px]:mr-0 md:mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">О НАС</h4>
+                    <hr class="w-12 h-1 bg-[#23563D] mx-auto">
+                </div>
+            </div>
+            <div class="min-[0px]:w-full md:w-[70%] flex min-[0px]:flex-col lg:flex-row">
+                <div class="min-[0px]:w-full md:w-[40%] min-[0px]:mx-auto md:mx-0 text-7xl text-[#23563D] mt-28 min-[0px]:text-center md:text-left" style="font-family: 'CirceBold';">
+                    <h2>Momo</h2>
+                    <h2>Art</h2>
+                    <h2>Cafe</h2>
+                </div>
+                <div class="min-[0px]:w-full md:w-[60%] min-[0px]:text-center md:text-justify text-lg text-[#23563D] mt-28">
+                    <p class="mb-5">
+                        <span class="border-b border-b-1 border-[#23563D]">MOMO ART CAFE</span> – это кафе, галерея, арт-клуб и бутик эксклюзивного текстиля.  Единое пространство, наполненное красотой и уютом, изысканное, шикарное и теплое одновременно. Дизайн в итальянском стиле с добавлением элементов русской неоклассики дополнен арт-объектами из личной коллекции основателя бренда Любови Алиповой. Насладитесь особенной атмосферой, в окружении подлинных шедевров современного искусства и народных костюмов XIX века и эксклюзивного текстиля от MOMO FOR HOME.
+                    </p>
+                    <p class="mb-5">
+                        <span class="border-b border-b-1 border-[#23563D]">MOMO ART CAFE</span> – это место, где ритм мегаполиса отступает перед красотой и искусством в самых разных их проявлениях.  События в арт-клубе – лекции и мастер-классы – позволяют открывать для себя новое в окружении единомышленников. Меню не оставит равнодушным самых искушенных.
+                    </p>
+                    <p class="mb-5">
+                        <span class="border-b border-b-1 border-[#23563D]">MOMO ART CAFE</span> – это полная палитра эстетических и гастрономических удовольствий!
+                    </p>
+                </div>
+            </div>
+            <div class="w-[15%]"></div>
+        </section>
+
+        <section class="max-w-[1325px] mx-auto flex min-[0px]:flex-col md:flex-row px-10 sm:px-20 md:px-10 pt-[200px]" id="menu">
+            <!-- Меню -->
+            <div class="min-[0px]:w-auto md:w-[15%] relative">
+                <div class="absolute min-[0px]:left-1/2 md:left-0 min-[0px]:translate-x-[-50%] md:translate-x-0 flex min-[0px]:flex-col md:flex-row items-center">
+                    <h4 class="text-xl text-[#23563D] min-[0px]:mr-0 md:mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">МЕНЮ</h4>
+                    <hr class="w-12 h-1 bg-[#23563D]">
+                </div>
+            </div>
+
+            <div class="min-[0px]:w-full md:w-[70%] flex flex-col relative">
+                <div class="flex flex min-[0px]:flex-col lg:flex-row mb-[100px]">
+                    <div class="min-[0px]:w-full md:w-[40%] min-[0px]:mx-auto md:mx-0 text-7xl text-[#23563D] mt-28 min-[0px]:text-center md:text-left" style="font-family: 'CirceBold';">
+                        <h2>Меню</h2>
+                    </div>
+
+                    <div class="min-[0px]:w-full md:w-[60%] min-[0px]:mx-auto md:mx-0 text-lg text-[#23563D] min-[0px]:text-center md:text-justify mt-28">
+                        <p class="mb-5">
+                            Меню в <span class="border-b border-b-1 border-[#23563D]">MOMO ART CAFE</span> - это настоящее творение искусства, которое не только удовлетворяет гастрономические желания, но и визуально радует глаза. Каждое блюдо в этом уютном кафе создано с любовью и тщательно подобрано из лучших ингредиентов.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col overflow-hidden mb-[50px] openMenu" style="height: 350px; transition: 1s;">
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Американо.jpg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">АМЕРИКАНО</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Бомбл кофе.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">БОМБЛ КОФЕ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Капучино и Флэт Уайт.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">КАПУЧИНО И ФЛЭТ УАЙТ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Кофе на песке.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">КОФН НА ПЕСКЕ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Латте малиновый.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЛАТТЕ МАЛИНОВЫЙ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Латте.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЛАТТЕ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Лимонад1.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЛИМОНАД №1</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Лимонад2.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЛИМОНАД №2</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Лимонад3.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЛИМОНАД №3</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Матча-латте.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">МАТЧА-ЛАТТЕ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Раф лаванда.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">РАФ ЛАВАНДА</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Раф шоколад.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">РАФ ШОКОЛАД</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Раф.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">РАФ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Смузи.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">СМУЗИ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Сникерс кофе.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">СНИКЕРС КОФЕ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Фильтр кофе.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ФИЛЬТР КОФЕ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[100px]">
+                        <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Фреш.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ФРЕШ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/Чай-латте.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЧАЙ-ЛАТТЕ</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="relative mx-auto z-10" id="more" onclick="expandMenu();">
+                    <div class="absolute bg-[#23563D] w-full h-full" id="menuButtonOutBlock"></div>
+                    <div class="absolute border-[2px] border-[#23563D] w-full h-full" id="menuButtonOutBorder"></div>
+                    <p class="  relative text-white py-3 px-7 bg-[#53FFAB] transition z-10" id="menuButtonText">ОСТАЛЬНОЕ МЕНЮ</p>
+                </button>
+                <!-- Задние элементы кнопки -->
+                <style>
+                    /* зад кнопки */
+                    #menuButtonOutBlock {
+                        top: -10px;
+                        left: -10px;
+                    }
+
+                    #menuButtonOutBorder {
+                        top: 10px;
+                        left: 10px;
+                    }
+
+                    #more:hover #menuButtonOutBlock {
+                        top: -2px;
+                        left: -2px;
+                    }
+
+                    #more:hover #menuButtonOutBorder {
+                        top: 2px;
+                        left: 2px;
+                    }
+
+                    #menuButtonOutBlock,
+                    #menuButtonOutBorder {
+                        transition: .5s;
+                        pointer-events: none;
+                    }
+
+                    /* зад кнопки */
+                </style>
+                <!-- Задние элементы кнопки -->
+                <script>
+                    var menuContainer = document.querySelector('.openMenu');
+                    var menuButtonText = document.getElementById('menuButtonText');
+                    var menuButtonBlock = document.getElementById('menuButtonBlock');
+
+                    function expandMenu() {
+                        if (menuContainer.style.height === '350px') {
+                            menuContainer.style.height = '100%';
+                            menuButtonText.innerText = 'СКРЫТЬ МЕНЮ';
+                        } else {
+                            menuContainer.style.height = '350px';
+                            setTimeout(function() {
+                                menuButtonText.innerText = 'ОСТАЛЬНОЕ МЕНЮ';
+                            }, 250);
+                        }
+                    }
+                </script>
+            </div>
+
+            <div class="w-[15%]"></div>
+        </section>
+
+        <div class="pt-[100px]" id="events"></div>
+
+        <section class="pb-[100px] bg-[rgba(83,255,171,.1)] pt-[100px]">
+            <!-- Мероприятия -->
+            <div class="max-w-[1325px] mx-auto flex min-[0px]:flex-col md:flex-row px-10 sm:px-20 md:px-10">
+
+                <div class="min-[0px]:w-auto md:w-[15%] relative">
+                    <div class="absolute min-[0px]:left-1/2 md:left-0 min-[0px]:translate-x-[-50%] md:translate-x-0 flex min-[0px]:flex-col md:flex-row items-center">
+                        <h4 class="text-xl text-[#23563D] min-[0px]:mr-0 md:mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">МЕРОПРИЯТИЯ</h4>
+                        <hr class="w-12 h-1 bg-[#23563D]">
+                    </div>
+                </div>
+
+                <div class="min-[0px]:w-full md:w-[70%] flex flex-col relative">
+                    <div class="flex flex min-[0px]:flex-col lg:flex-row mb-[100px]">
+                        <div class="min-[0px]:w-full md:w-[40%] min-[0px]:mx-auto md:mx-0 text-7xl text-[#23563D] mt-28 min-[0px]:text-center md:text-left" style="font-family: 'CirceBold';">
+                            <h2>Меро</h2>
+                            <h2>прия</h2>
+                            <h2>тия</h2>
+                        </div>
+
+                        <div class="min-[0px]:w-full md:w-[60%] min-[0px]:mx-auto md:mx-0 text-lg text-[#23563D] min-[0px]:text-center md:text-justify mt-28">
+                            <p class="mb-5">
+                                В <span class="border-b border-b-1 border-[#23563D]">MOMO ART CAFE</span> проводятся разнообразные мероприятия, которые позволяют гостям насладиться не только вкусной едой, но и уникальной атмосферой. Вот некоторые из мероприятий, которые вы можете ожидать:
+                            </p>
+                        </div>
+                    </div>
+                    <div class="h-full lg:h-[500px] relative text-lg">
+                        <div class="relative lg:absolute top-auto lg:top-[0px] left-[50%] lg:left-[0px] translate-x-[-50%] lg:translate-x-0 w-full lg:w-[80%] h-[500px] lg:h-[80%] text-white cursor-pointer eventsBlock_1 z-10 mb-20">
+                            <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none eventsBackGround_1"></div>
+                            <div class="w-full h-full absolute top-0 left-0 z-[-10] bg-[rgba(35,86,61,1)] pointer-events-none"></div>
+                            <div class="absolute top-0 left-0 z-10">
+                                <h3 class="text-3xl lg:text-4xl p-10 pt-24 sm:pt-10 sm:pr-48" style="font-family: 'CirceBold';">«Винное казино» с Мариной Джонсон</h3>
+                                <p class=" px-10 mb-10 eventsTextHidden">Пятницкая, 54с1</p>
+                            </div>
+                            <p class="absolute top-0 right-0 z-10 p-4 bg-[#53FFAB] text-[#23563D]">5 июня в 19:00</p>
+                        </div>
+                        <div class="relative lg:absolute top-auto lg:top-[12%] left-[50%] lg:left-[8%] translate-x-[-50%] lg:translate-x-0 w-full lg:w-[80%] h-[500px] lg:h-[80%] text-white cursor-pointer eventsBlock_2 z-10 mb-20">
+                            <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none eventsBackGround_1"></div>
+                            <div class="w-full h-full absolute top-0 left-0 z-[-10] bg-[rgba(35,86,61,1)] pointer-events-none"></div>
+                            <div class="absolute top-0 left-0 z-10">
+                                <h3 class="text-3xl lg:text-4xl p-10 pt-24 sm:pt-10 sm:pr-48" style="font-family: 'CirceBold';">Поп-арт-галерея «Пальто» в гостях у МОМО АВТ-САЕЕ: встреча с художником Александром Петрелли</h3>
+                                <p class="px-10 mb-10 eventsTextHidden eventsTextHidden">пт Малый Паsлашёвский, 2/8</p>
+                            </div>
+                            <p class="absolute top-0 right-0 z-10 p-4 bg-[#53FFAB] text-[#23563D]">14 июня 19:00</p>
+                        </div>
+                        <div class="relative lg:absolute top-auto lg:top-[24%] left-[50%] lg:left-[16%] translate-x-[-50%] lg:translate-x-0 w-full lg:w-[80%] h-[500px] lg:h-[80%] text-white cursor-pointer eventsBlock_3 z-10 mb-20">
+                            <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none eventsBackGround_1"></div>
+                            <div class="w-full h-full absolute top-0 left-0 z-[-10] bg-[rgba(35,86,61,1)] pointer-events-none"></div>
+                            <div class="absolute top-0 left-0 z-10">
+                                <h3 class="text-3xl lg:text-4xl p-10 pt-24 sm:pt-10 sm:pr-48" style="font-family: 'CirceBold';">«Русский стиль: влияние на мировую моду»</h3>
+                                <p class=" px-10 mb-10">Малый Палашёвский, 2/8</p>
+                            </div>
+                            <p class="absolute top-0 right-0 z-10 p-4 bg-[#53FFAB] text-[#23563D]">19 июня 19:00</p>
+                        </div>
+                        <div class="relative lg:absolute top-auto lg:top-[36%] left-[50%] lg:left-[24%] translate-x-[-50%] lg:translate-x-0 w-full lg:w-[80%] h-[500px] lg:h-[80%] text-white cursor-pointer eventsBlock_4 z-10 mb-20">
+                            <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none eventsBackGround_1"></div>
+                            <div class="w-full h-full absolute top-0 left-0 z-[-10] bg-[rgba(35,86,61,1)] pointer-events-none"></div>
+                            <div class="absolute top-0 left-0 z-10">
+                                <h3 class="text-3xl lg:text-4xl p-10 pt-24 sm:pt-10 sm:pr-48" style="font-family: 'CirceBold';">«А если это любовь? Курортный роман: «маленькая жизнь» или большое разочарование?»</h3>
+                                <p class=" px-10 mb-10 eventsTextHidden">Малый Палашёвский, 2/8</p>
+                            </div>
+                            <p class="absolute top-0 right-0 z-10 p-4 bg-[#53FFAB] text-[#23563D]">27 июня 19:00</p>
+                        </div>
+                        <div class="relative lg:absolute top-auto lg:top-[48%] left-[50%] lg:left-[32%] translate-x-[-50%] lg:translate-x-0 w-full lg:w-[80%] h-[500px] lg:h-[80%] text-white cursor-pointer eventsBlock_5 z-10 mb-20">
+                            <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none eventsBackGround_1"></div>
+                            <div class="w-full h-full absolute top-0 left-0 z-[-10] bg-[rgba(35,86,61,1)] pointer-events-none"></div>
+                            <div class="absolute top-0 left-0 z-10">
+                                <h3 class="text-3xl lg:text-4xl p-10 pt-24 sm:pt-10 sm:pr-48" style="font-family: 'CirceBold';">Пикник и мастер-класс в стиле «Онегин»</h3>
+                                <p class="px-10 mb-10 eventsTextHidden">Партнерское мероприятие <br> с декоратором Светланой Долговой <br> <b>Парк-усадьба Воронцово</b></p>
+                            </div>
+                            <p class="absolute top-0 right-0 z-10 p-4 bg-[#53FFAB] text-[#23563D]">29 июня 19:00</p>
+                        </div>
+
+
+                        <!-- С картинкой -->
+                        <!-- <div class="relative lg:absolute top-auto lg:top-0 left-[50%] lg:left-0 translate-x-[-50%] lg:translate-x-0 w-full lg:w-[80%] h-[500px] lg:h-[80%] text-white cursor-pointer eventsBlock_1 z-10 mb-20">
+                            <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none eventsBackGround_1"></div>
+                            <img class="w-full h-full object-cover eventsPhoto_1" src="img/IMG_3949.jpeg" alt="">
+                            <div class="absolute top-0 left-0 z-10">
+                                <h3 class="text-4xl p-10 pt-20 sm:pt-10 sm:pr-48 eventsTitle_1" style="font-family: 'CirceBold';">Вечер шансона и романтики</h3>
+                                <p class=" px-10 mb-10 eventsText_1">Погрузитесь в атмосферу ностальгии и любовных историй на нашем вечере шансона и романтики. Насладитесь проникновенными мелодиями, исполненными талантливыми артистами, которые возрождают дух золотой эпохи этого жанра. Приятная атмосфера и уютный интерьер нашего кафе создадут идеальное место для романтического вечера в компании дорогих людей.</p>
+                            </div>
+                            <p class="absolute top-0 right-0 z-10 p-4 bg-[#53FFAB] eventsDate_1 text-[#23563D]">17:30 01.01.2024</p>
+                        </div> -->
+                        <!-- С картинкой -->
+
+                        <!-- Без картинки -->
+                        <!-- lg:top-[36%] lg:top-[48%] / lg:left-[24%] lg:left-[32%] -->
+                        <!-- <div class="relative lg:absolute top-auto lg:top-[48%] left-[50%] lg:left-[32%] translate-x-[-50%] lg:translate-x-0 w-full lg:w-[80%] h-[500px] lg:h-[80%] text-white cursor-pointer eventsBlock_5 z-10 mb-20">
+                            <div class="w-full h-full absolute top-0 left-[0px] z-10 bg-[rgba(35,86,61,.4)] pointer-events-none eventsBackGround_1"></div>
+                            <div class="w-full h-full absolute top-0 left-[0px] z-[-10] bg-[rgba(35,86,61,1)] pointer-events-none"></div>
+                            <div class="absolute top-0 left-0 z-10">
+                                <h3 class="text-4xl p-10 pt-20 sm:pt-10 sm:pr-48" style="font-family: 'CirceBold';">Вечер стендап-комедии: Смех до слез</h3>
+                                <p class=" px-10 mb-10">Приготовьтесь к вечеру полному веселья и развлечений! Наши талантливые комики подарят вам незабываемые моменты смеха и юмора. Шутки на самые разные темы, острые и смешные истории из жизни - все это ждет вас на нашем вечере стендап-комедии. Приходите с друзьями, смейтесь до слез и создавайте вместе веселые воспоминания.</p>
+                            </div>
+                            <p class="absolute top-0 right-0 z-10 p-4 bg-[#53FFAB] text-[#23563D]">18:00 28.02.2024</p>
+                        </div> -->
+                        <!-- Без картинки -->
+
+                        <style>
+                            .eventsTextHidden{
+                              display: -webkit-box;
+                              -webkit-line-clamp: 5;
+                              -webkit-box-orient: vertical;
+                              overflow: hidden;
+                              text-overflow: ellipsis;
+/*                              max-width: 500px;*/
+                            }
+
+                        </style>
+                    </div>
+                </div>
+
+                <div class="w-[15%]"></div>
+            </div>
+        </section>
+
+        <div class="min-[0px]:bg-[rgba(83,255,171,0)] md:bg-[rgba(83,255,171,.1)] pt-[150px]" id="stocks"></div>
+
+        <section class="max-w-[1325px] mx-auto flex min-[0px]:flex-col md:flex-row px-10 sm:px-20 md:px-10 min-[0px]:pt-[50px] md:pt-[100px]">
+            <!-- Акции -->
+            <div class="min-[0px]:w-auto md:w-[15%] relative">
+                <div class="absolute min-[0px]:left-1/2 md:left-0 min-[0px]:translate-x-[-50%] md:translate-x-0 flex min-[0px]:flex-col md:flex-row items-center">
+                    <h4 class="text-xl text-[#23563D] min-[0px]:mr-0 md:mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">АКЦИИ</h4>
+                    <hr class="w-12 h-1 bg-[#23563D]">
+                </div>
+            </div>
+
+            <div class="min-[0px]:w-full md:w-[70%] flex flex-col relative">
+                <div>
+                    <div class="flex flex min-[0px]:flex-col lg:flex-row mb-[100px]">
+                        <div class="min-[0px]:w-full md:w-[40%] min-[0px]:mx-auto md:mx-0 text-7xl text-[#23563D] mt-28 min-[0px]:text-center md:text-left" style="font-family: 'CirceBold';">
+                            <h2>Акции</h2>
+                        </div>
+
+                        <div class="min-[0px]:w-full md:w-[60%] min-[0px]:mx-auto md:mx-0 text-lg text-[#23563D] min-[0px]:text-center md:text-justify mt-28">
+                            <p class="mb-5">
+                                Мы хотим, чтобы посещение <span class="border-b border-b-1 border-[#23563D]">МОМО ART CAFÉ</span> стало для вас приятным по всех отношениях. Ознакомьтесь, пожалуйста, с акциями и сезонными предложениями.
+                            </p>
+                        </div>
+                </div>
+                <div>
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+
+                    <div class="uk-slider-items uk-grid h-[600px] lg:h-[500px]">
+                        <div class="uk-width-4-5">
+                            <div class="uk-panel h-full">
+                                <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none"></div>
+                                <img src="img/1581015361_18-p-omleti-na-zavtrak-511.jpg" width="1800" class="h-full object-cover" alt="">
+                                <div class="uk-position-center uk-text-center relative z-20 px-2 lg:px-32">
+                                    <h2 uk-slider-parallax="x: 100,-100" class="text-2xl mb-3">Акция №1</h2>
+                                    <p uk-slider-parallax="x: 200,-200">Скидка 20% на все меню кафе за 5 дней до дня рождения и 5 дней после</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-width-4-5">
+                            <div class="uk-panel h-full">
+                                <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none"></div>
+                                <img src="img/scale_12001.jpg" width="1800" class="h-full object-cover" alt="">
+                                <div class="uk-position-center uk-text-center relative z-20 px-2 lg:px-32">
+                                    <h2 uk-slider-parallax="x: 100,-100" class="text-2xl mb-3">Акция №2</h2>
+                                    <p uk-slider-parallax="x: 200,-200">Скидка 15% на товары MОМО FOR HOME за 5 дней до дня рождения и 5 дней после</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-width-4-5">
+                            <div class="uk-panel h-full">
+                                <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none" class="relative z-10"></div>
+                                <img src="img/1663762255_1-mykaleidoscope-ru-p-krasivaya-podacha-myasa-yeda-vkontakte-1.jpg" width="1800" class="h-full object-cover" alt="">
+                                <div class="uk-position-center uk-text-center relative z-20 px-2 lg:px-32">
+                                    <h2 uk-slider-parallax="x: 100,-100" class="text-2xl mb-3">Акция №3</h2>
+                                    <p uk-slider-parallax="x: 200,-200">При покупке 5 чашек кофе 6-я по счету в подарок</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-width-4-5">
+                            <div class="uk-panel h-full">
+                                <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none"></div>
+                                <img src="img/281475010174136_0938.jpg" width="1800" class="h-full object-cover" alt="">
+                                <div class="uk-position-center uk-text-center relative z-20 px-2 lg:px-32">
+                                    <h2 uk-slider-parallax="x: 100,-100" class="text-2xl mb-3">Акция №4</h2>
+                                    <p uk-slider-parallax="x: 200,-200">Билет в Арт-клуб за регистрацию в программе лояльности. Необходимо заполнить анкету.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-width-4-5">
+                            <div class="uk-panel h-full">
+                                <div class="w-full h-full absolute top-0 left-0 z-10 bg-[rgba(35,86,61,.4)] pointer-events-none"></div>
+                                <img src="img/281475010174136_0938.jpg" width="1800" class="h-full object-cover" alt="">
+                                <div class="uk-position-center uk-text-center relative z-20 px-2 lg:px-32">
+                                    <h2 uk-slider-parallax="x: 100,-100" class="text-2xl mb-3">Акция №5</h2>
+                                    <p uk-slider-parallax="x: 200,-200">Бесплатный кофе при покупке любых товаров в MOMO FOR HOME и МOMO ART CAFE на сумму от 10 тыс. рублей</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
+
+                    </div>
+                </div>
+
+            <div class="w-[15%]"></div>
+        </section>
+
+        <!-- min-[0px]: md: -->
+        <section class="max-w-[1325px] mx-auto flex min-[0px]:flex-col md:flex-row px-10 sm:px-20 md:px-10 pt-[150px] md:pt-[200px]" id="reviews">
+            <!-- Отзывы -->
+            <div class="min-[0px]:w-auto md:w-[15%] relative">
+                <div class="absolute min-[0px]:left-1/2 md:left-0 min-[0px]:translate-x-[-50%] md:translate-x-0 flex min-[0px]:flex-col md:flex-row items-center">
+                    <h4 class="text-xl text-[#23563D] min-[0px]:mr-0 md:mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ОТЗЫВЫ</h4>
+                    <hr class="w-12 h-1 bg-[#23563D]">
+                </div>
+            </div>
+
+            <div class="min-[0px]:w-full md:w-[70%] flex flex-col relative">
+                <div class="flex flex-col md:flex-row mb-[100px]">
+                    <div class="w-full md:w-[50%] mx-auto md:mx-0 text-7xl text-[#23563D] mt-28 text-center md:text-left" style="font-family: 'CirceBold';">
+                        <h2 class="w-full whitespace-nowrap">Отзывы</h2>
+                    </div>
+                </div>
+                <div>
+                    <div class="center">
+                        <div class="carousel-wrapper">
+                            <!-- abstract radio buttons for slides -->
+                            <input id="slide1" type="radio" name="controls" checked="checked" />
+                            <input id="slide2" type="radio" name="controls" />
+                            <input id="slide3" type="radio" name="controls" />
+                            <input id="slide4" type="radio" name="controls" />
+                            <input id="slide5" type="radio" name="controls" />
+
+                            <!-- navigation dots -->
+                            <label for="slide1" class="nav-dot"></label>
+                            <label for="slide2" class="nav-dot"></label>
+                            <label for="slide3" class="nav-dot"></label>
+                            <label for="slide4" class="nav-dot"></label>
+                            <label for="slide5" class="nav-dot"></label>
+
+                            <!-- arrows -->
+                            <label for="slide1" class="left-arrow"> < </label>
+                            <label for="slide2" class="left-arrow"> < </label>
+                            <label for="slide3" class="left-arrow"> < </label>
+                            <label for="slide4" class="left-arrow"> < </label>
+                            <label for="slide5" class="left-arrow"> < </label>
+
+                            <label for="slide1" class="right-arrow"> > </label>
+                            <label for="slide2" class="right-arrow"> > </label>
+                            <label for="slide3" class="right-arrow"> > </label>
+                            <label for="slide4" class="right-arrow"> > </label>
+                            <label for="slide5" class="right-arrow"> > </label>
+
+                            <div class="carousel mb-20 lg:mb-10">
+                                <ul>
+                                    <li class="mx-0 sm:mx-10">
+                                        <div class="snap-start w-full h-full flex flex-col lg:flex-row items-center justify-center flex-shrink-0" id="slide-1">
+                                            <div class="w-full lg:w-[65%] text-lg text-[#23563D] text-center lg:text-justify mr-0 lg:mr-20 order-2 lg:order-1" style="font-family: 'CirceItalic';">
+                                                <p>Очень уютное место, антикварная мебель, вкусный кофе, десерты и приветливые девочки: бариста сварила вкусный кофе, пока Анастасия мне рассказала про идею и историю.
+Очень люблю людей, которые создают красоту. Оказывается тут можно приобрести красивые подарки, я одну скатерть добавила в вишлист. Жаль мне крышечку плохо закрыли и моя толстовка из Питера «приказала долго жить», но эмоции дороже вещей.</p>
+                                            </div>
+                                            <div class="w-2/3 sm:w-1/2 lg:w-[35%] order-1 lg:order-2 mb-20 lg:mb-0">
+                                                <img class="w-full object-cover" style="border-radius: 100px / 120px 0;" src="img/XXX1L.webp" alt="">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mx-0 sm:mx-10">
+                                        <div class="snap-start w-full h-full flex flex-col lg:flex-row items-center justify-center flex-shrink-0" id="slide-1">
+                                            <div class="w-full lg:w-[65%] text-lg text-[#23563D] text-center lg:text-justify mr-0 lg:mr-20 order-2 lg:order-1" style="font-family: 'CirceItalic';">
+                                                <p>В выходные прогуливалась по Москве, зашла в прекрасное, милое место Momo Art Cafe! Давно не посещала таких приятных, теплых мест. Отдельная благодарность Тену и Татьяне за теплоту и доброжелательность! Помимо кофе и вкусной исвежей выпечки, нашла прекрасные идеи для подарков, Большой выбор текстиля и аксессуаров на любой вкус! Спасибо большое за приятное пространство.</p>
+                                            </div>
+                                            <div class="w-2/3 sm:w-1/2 lg:w-[35%] order-1 lg:order-2 mb-20 lg:mb-0">
+                                                <img class="w-full object-cover" style="border-radius: 100px / 120px 0;" src="img/XXXL (2).webp" alt="">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mx-0 sm:mx-10">
+                                        <div class="snap-start w-full h-full flex flex-col lg:flex-row items-center justify-center flex-shrink-0" id="slide-1">
+                                            <div class="w-full lg:w-[65%] text-lg text-[#23563D] text-center lg:text-justify mr-0 lg:mr-20 order-2 lg:order-1" style="font-family: 'CirceItalic';">
+                                                <p>Очень милое,уютное местечко.Приятная атмосфера и вкусный кофе.Милые девушки и элегантная хозяйка заведения.Просто прекрасно!Можно отдохнуть в тишине и попробовать вкуснейшие десерты!Рекомендую однозначно!</p>
+                                            </div>
+                                            <div class="w-2/3 sm:w-1/2 lg:w-[35%] order-1 lg:order-2 mb-20 lg:mb-0">
+                                                <img class="w-full object-cover" style="border-radius: 100px / 120px 0;" src="img/XXXL (3).webp" alt="">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mx-0 sm:mx-10">
+                                        <div class="snap-start w-full h-full flex flex-col lg:flex-row items-center justify-center flex-shrink-0" id="slide-1">
+                                            <div class="w-full lg:w-[65%] text-lg text-[#23563D] text-center lg:text-justify mr-0 lg:mr-20 order-2 lg:order-1" style="font-family: 'CirceItalic';">
+                                                <p>Классное, атмосферное место недалеко от знаменитых Патриков. Вкусный кофе, приветливый персонал. Заодно, магазинчик керамики и льняных изделий, прикупила себе кувшинчик и пару салфеток. Рекомендую к посещению. Такой же магазин есть на Пятницкой.</p>
+                                            </div>
+                                            <div class="w-2/3 sm:w-1/2 lg:w-[35%] order-1 lg:order-2 mb-20 lg:mb-0">
+                                                <img class="w-full object-cover" style="border-radius: 100px / 120px 0;" src="img/XXXL (4).webp" alt="">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mx-0 sm:mx-10">
+                                        <div class="snap-start w-full h-full flex flex-col lg:flex-row items-center justify-center flex-shrink-0" id="slide-1">
+                                            <div class="w-full lg:w-[65%] text-lg text-[#23563D] text-center lg:text-justify mr-0 lg:mr-20 order-2 lg:order-1" style="font-family: 'CirceItalic';">
+                                                <p>Чудесная спокойная атмосфера, невероятной красоты посуда в которой подают кофе или чай. Люблю полезный брусничный пирог здесь, кофе по восточному❤️ и очень приятные ребята работают, внимательные и душевные!</p>
+                                            </div>
+                                            <div class="w-2/3 sm:w-1/2 lg:w-[35%] order-1 lg:order-2 mb-20 lg:mb-0">
+                                                <img class="w-full object-cover" style="border-radius: 100px / 120px 0;" src="img/XXXL (5).webp" alt="">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-[15%]"></div>
+        </section>
+
+        <div class="pt-[100px]" id="photoGallery"></div>
+
+        <section class="mb-[100px] py-[100px] bg-[rgba(83,255,171,.1)] pt-[100px]">
+            <!-- Фотогаллерея -->
+            <div class="max-w-[1325px] mx-auto flex min-[0px]:flex-col md:flex-row px-10 sm:px-20 md:px-10">
+                <div class="min-[0px]:w-auto md:w-[15%] relative">
+                    <div class="absolute min-[0px]:left-1/2 md:left-0 min-[0px]:translate-x-[-50%] md:translate-x-0 flex min-[0px]:flex-col md:flex-row items-center">
+                        <h4 class="text-xl text-[#23563D] min-[0px]:mr-0 md:mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ФОТОГАЛЛЕРЕЯ</h4>
+                        <hr class="w-12 h-1 bg-[#23563D]">
+                    </div>
+                </div>
+
+                <div class="w-full md:w-[70%] flex flex-col relative">
+
+                    <div class="flex flex-col md:flex-row mb-[100px]">
+                        <div class="w-full min-[0px]:mx-auto md:mx-0 text-7xl text-[#23563D] mt-28 min-[0px]:text-center md:text-left" style="font-family: 'CirceBold';">
+                            <h2>Фото</h2>
+                            <h2>галле</h2>
+                            <h2>рея</h2>
+                            <!-- <h2>Фотогаллерея</h2> -->
+                        </div>
+                    </div>
+                    <!-- <div class="flex flex-col">
+                        <div class="flex min-[0px]:flex-col lg:flex-row h-[1200px] lg:h-[400px]">
+                            <div class="min-[0px]:w-full lg:w-[20%] h-1/4 lg:h-full cursor-pointer relative photo">
+                                <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                <img class="w-full h-full object-cover photogalleryMomoArtCafe" src="img/Screenshot_50.png" alt="">
+                                <style>
+                                    @media (max-width: 1024px) {
+                                        .photogalleryMomoArtCafe {
+                                            object-position: 0 -180px;
+                                        }
+                                    }       
+                                </style>
+                                <h3 class="absolute bottom-0 left-0 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Momo Art Cafe</h3>
+                            </div>
+                            <div class="min-[0px]:w-full lg:w-[30%] h-2/4 lg:h-full flex flex-col">
+                                <div class="h-1/2 cursor-pointer relative photo">
+                                    <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                    <img class="w-full h-full object-cover" src="img/Screenshot_51.png" alt="" style="object-position: ;">
+                                    <h3 class="absolute bottom-0 right-0 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Пасха</h3>
+                                </div>
+                                <div class="h-1/2 cursor-pointer relative photo">
+                                    <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                    <img class="w-full h-full object-cover" src="img/Screenshot_56.png" alt="">
+                                    <h3 class="absolute bottom-0 left-1/2 -translate-x-1/2 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Любовь</h3>
+                                </div>
+                            </div>
+                            <div class="min-[0px]:w-full lg:w-1/2 h-1/4 lg:h-full cursor-pointer cursor-pointer relative photo">
+                                <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                <img class="w-full h-full object-cover" src="img/Screenshot_52.png" alt="">
+                                <h3 class="absolute top-0 left-0 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Сердечко</h3>
+                            </div>
+                        </div>
+                        <div class="flex min-[0px]:flex-col lg:flex-row h-[900px] lg:h-[400px] relative">
+                            <div class="min-[0px]:w-full lg:w-[50%] h-1/3 lg:h-full cursor-pointer relative photo">
+                                <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                <img class="w-full h-full object-cover" src="img/Screenshot_53.png" alt="">
+                                <h3 class="absolute top-0 left-0 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Натуральные<br> зёрна</h3>
+                            </div>
+                            <div class="min-[0px]:w-full lg:w-[50%] h-2/3 lg:h-full flex-col">
+                                <div class="h-1/2 lg:h-[60%] cursor-pointer relative photo">
+                                    <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                    <img class="w-full h-full object-cover" src="img/Screenshot_54.png" alt="">
+                                    <h3 class="absolute top-1/2 left-0 -translate-y-1/2 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Вкусный<br> кофе</h3>
+                                </div>
+                                <div class="h-1/2 lg:h-[40%] cursor-pointer relative photo">
+                                    <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                    <img class="w-full h-full object-cover" src="img/Screenshot_55.png" alt="">
+                                    <h3 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl p-2 text-white photoText transition" style="font-family: 'CirceBold';">Лучшее кафе</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="flex flex-col">
+                        <div class="flex min-[0px]:flex-col lg:flex-row h-[1200px] lg:h-[400px]">
+                            <div class="min-[0px]:w-full lg:w-[20%] h-1/4 lg:h-full cursor-pointer relative photo">
+                                <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                <img class="w-full h-full object-cover" src="img/DSC03788.JPG" alt="">
+                                <h3 class="absolute bottom-0 left-0 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Momo Art Cafe</h3>
+                            </div>
+                            <div class="min-[0px]:w-full lg:w-[30%] h-2/4 lg:h-full flex flex-col">
+                                <div class="h-1/2 cursor-pointer relative photo">
+                                    <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                    <img class="w-full h-full object-cover" src="img/DSC03689.JPG" alt="" style="object-position: ;">
+                                    <h3 class="absolute bottom-0 right-0 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Пасха</h3>
+                                </div>
+                                <div class="h-1/2 cursor-pointer relative photo">
+                                    <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                    <img class="w-full h-full object-cover" src="img/DSC03705.JPG" alt="">
+                                    <h3 class="absolute bottom-0 left-1/2 -translate-x-1/2 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Любовь</h3>
+                                </div>
+                            </div>
+                            <div class="min-[0px]:w-full lg:w-1/2 h-1/4 lg:h-full cursor-pointer cursor-pointer relative photo">
+                                <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                <img class="w-full h-full object-cover" src="img/DSC03730.JPG" alt="">
+                                <h3 class="absolute top-0 left-0 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Сердечко</h3>
+                            </div>
+                        </div>
+                        <div class="flex min-[0px]:flex-col lg:flex-row h-[900px] lg:h-[400px] relative">
+                            <div class="min-[0px]:w-full lg:w-[50%] h-1/3 lg:h-full cursor-pointer relative photo">
+                                <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                <img class="w-full h-full object-cover" src="img/DSC03783.JPG" alt="">
+                                <h3 class="absolute top-0 left-0 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Натуральные<br> зёрна</h3>
+                            </div>
+                            <div class="min-[0px]:w-full lg:w-[50%] h-2/3 lg:h-full flex-col">
+                                <div class="h-1/2 lg:h-[60%] cursor-pointer relative photo">
+                                    <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                    <img class="w-full h-full object-cover" src="img/DSC03821.JPG" alt="">
+                                    <h3 class="absolute top-1/2 left-0 -translate-y-1/2 text-4xl p-10 text-white photoText transition" style="font-family: 'CirceBold';">Вкусный<br> кофе</h3>
+                                </div>
+                                <div class="h-1/2 lg:h-[40%] cursor-pointer relative photo">
+                                    <div class="w-full h-full absolute top-0 left-0 bg-[rgba(35,86,61,.4)] pointer-events-none photoBack transition"></div>
+                                    <img class="w-full h-full object-cover" src="img/DSC03779.JPG" alt="" style="object-position: 0 -300px;">
+                                    <h3 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl p-2 text-white photoText transition" style="font-family: 'CirceBold';">Лучшее кафе</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-[15%]"></div>
+            </div>
+        </section>
+
+        <section class="max-w-[1325px] mx-auto px-10 sm:px-20 md:px-10 mb-[50px] min-[1024px]:mb-[200px] overflow-hidden" id="contacts">
+            <!-- Контакты -->
+             <div class="min-[0px]:w-auto md:w-[15%] relative">
+                <div class="absolute min-[0px]:left-1/2 md:left-0 min-[0px]:translate-x-[-50%] md:translate-x-0 flex min-[0px]:flex-col md:flex-row items-center">
+                    <h4 class="text-xl text-[#23563D] min-[0px]:mr-0 md:mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">КОНТАКТЫ</h4>
+                    <hr class="w-12 h-1 bg-[#23563D]">
+                </div>
+            </div>
+
+            <div class="flex min-[0px]:flex-col lg:flex-row items-center pt-[100px]">
+                <div class="min-[0px]:w-full lg:w-[30%] flex flex-col gap-10 mb-20 lg:mb-0 min-[0px]:ml-0 md:ml-[20%] lg:ml-0">
+                    <div class="flex min-[0px]:flex-col md:flex-row">
+                        <img class="w-10 h-10 min-[0px]:mx-auto md:ml-0 md:mr-5" src="img/icons/free-icon-appointment-7322293.png" alt="">
+                        <h3 class="text-4xl text-[#53FFAB] text-center md:text-left" style="font-family: 'CirceBold';">Бронь столика</h3>
+                    </div>
+                    <div class="flex min-[0px]:flex-col md:flex-row">
+                        <img class="w-10 h-10 min-[0px]:mx-auto md:ml-0 md:mr-5" src="img/icons/free-icon-user-709722.png" alt="">
+                        <h3 class="text-4xl text-[#53FFAB] text-center md:text-left" style="font-family: 'CirceBold';">Индивидуальное меню</h3>
+                    </div>
+                    <div class="flex min-[0px]:flex-col md:flex-row">
+                        <img class="w-10 h-10 min-[0px]:mx-auto md:ml-0 md:mr-5" src="img/icons/free-icon-order-5117181.png" alt="">
+                        <h3 class="text-4xl text-[#53FFAB] text-center md:text-left" style="font-family: 'CirceBold';">Заказ билетов <br> на мероприятия <br> MOMO ART CLUB</h3>
+                    </div>
+                    <div class="flex min-[0px]:flex-col md:flex-row">
+                        <img class="w-10 h-10 min-[0px]:mx-auto md:ml-0 md:mr-5" src="img/icons/free-icon-key-1769630.png" alt="">
+                        <h3 class="text-4xl text-[#53FFAB] text-center md:text-left" style="font-family: 'CirceBold';">Аренда пространства</h3>
+                    </div>
+                </div>
+
+                <div class="min-[0px]:w-full lg:w-[70%] relative">
+                    <div class="w-full sm:w-[450px] lg:w-2/3 xl:w-[52%] p-10 bg-[#23563D] min-[0px]:ml-0 md:ml-[10%] relative z-20">
+                        <div class="flex gap-4">
+                            <img src="img/icons/Vector.svg" alt="">
+                            <p class="text-lg text-white leading-loose">Малый Палашевский, 2/8</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img src="img/icons/Vector-1.svg" alt="">
+                            <div class="flex min-[0px]:flex-col md:flex-row min-[0px]:gap-0 md:gap-4">
+                                <a class="text-lg text-white leading-loose hover:text-[#53FFAB]" href="tel:+7 (985) 052 33 31" style="text-decoration: none;">+7 (985) 052-33-31,</a>
+                                <a class="text-lg text-white leading-loose hover:text-[#53FFAB]" href="tel:+7 (903) 170 99 22" style="text-decoration: none;">+7 (903) 170-99-22</a>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xl text-white leading-loose"><b>Время работы</b></p>
+                            <p class="text-lg text-white leading-loose"> <b>Пн-Пт</b> c 09:00 до 21:00 <br> <b>Сб-Вс</b> с 10:00 до 22:00</p>
+                        </div>
+                    </div>
+                    <!-- Нужно будет доработать карту с этого видео: https://www.youtube.com/watch?v=JT5XTA2zjTU&ab_channel=MaxGraph-c%D0%B0%D0%B9%D1%82%D1%8B%D0%BA%D0%B0%D0%BA%D1%81%D1%82%D1%80%D0%B0%D1%81%D1%82%D1%8C -->
+                    <!-- <div class="
+                    map-grayscale 
+                    min-[0px]:relative                                      xl:absolute 
+                                                    lg:translate-y-[-100px] xl:translate-y-0
+                    min-[0px]:top-0                                         xl:-top-1/4 
+                    min-[0px]:left-0 md:left-[10%]  lg:left-[50%]                               2xl:left-[30%]  min-[1620px]:left-[20%] 
+                    min-[0px]:w-full md:w-[80%]     lg:w-1/2                xl:w-2/3                            min-[1620px]:w-full 
+                                                    lg:z-20                 xl:z-10
+                    shadow-2xl
+                    mb-16
+                    "> -->
+
+                    <div class="
+                    map-grayscale 
+                    relative                                            xl:absolute 
+                                                lg:translate-y-[-100px] xl:translate-y-0
+                    left-0      md:left-[10%]   lg:left-[50%]           xl:left-[25%]       2xl:left-[30%]
+                    top-0                                               xl:-top-1/4 
+                    w-full      md:w-[80%]      lg:w-1/2                xl:w-2/3            2xl:w-full
+                                                lg:z-20                 xl:z-10
+                    shadow-2xl
+                    mb-16
+                    ">
+                    <div class=""></div>
+                        <div style="overflow:hidden;"><a href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a href="https://yandex.ru/maps/213/moscow/house/maly_palashyovskiy_pereulok_2_8/Z04YcAdhT00GQFtvfXt3dXtlYA==/?ll=37.603079%2C55.764972&utm_medium=mapframe&utm_source=maps&z=17.66" style="color:#eee;font-size:12px;position:absolute;top:14px;">Малый Палашёвский переулок, 2/8 — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=37.603079%2C55.764972&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjcyNTQzNhJT0KDQvtGB0YHQuNGPLCDQnNC-0YHQutCy0LAsINCc0LDQu9GL0Lkg0J_QsNC70LDRiNGR0LLRgdC60LjQuSDQv9C10YDQtdGD0LvQvtC6LCAyLzgiCg0gaBZCFR4PX0I%2C&z=17.66" width="100%" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                    </div>
+                    <style>
+                        .map-grayscale {
+                            filter: url("data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\'&gt;&lt;filter id=\'grayscale\'&gt;&lt;feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale");
+                            /* Firefox 10+, Firefox on Android */
+                            filter: gray;
+                            /* IE6-9 */
+                            -webkit-filter: grayscale(100%);
+                            /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+                        }
+                    </style>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-[#23563D] py-5">
+        <a class="block w-40 mx-auto" href="#">
+            <img src="img/Logo.png" alt="">
+        </a>
+    </footer>
+</body>
+
+</html>
