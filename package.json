@@ -2,7 +2,7 @@
   "devDependencies": {
     "tailwindcss": "^3.4.4"
   },
-  "name": "momo-art-cafe-(new)",
+  "name": "momo",
   "version": "1.0.0",
   "main": "tailwind.config.js",
   "dependencies": {
