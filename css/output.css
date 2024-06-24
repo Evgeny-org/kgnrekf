@@ -558,6 +558,10 @@ video {
   pointer-events: none;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .collapse {
   visibility: collapse;
 }
@@ -780,12 +784,12 @@ video {
   height: 25px;
 }
 
-.h-\[500px\] {
-  height: 500px;
+.h-\[400px\] {
+  height: 400px;
 }
 
-.h-\[600px\] {
-  height: 600px;
+.h-\[500px\] {
+  height: 500px;
 }
 
 .h-\[90\%\] {
@@ -1090,6 +1094,11 @@ video {
   padding-right: 7rem;
 }
 
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .px-7 {
   padding-left: 1.75rem;
   padding-right: 1.75rem;
@@ -1120,12 +1129,16 @@ video {
   padding-bottom: 100px;
 }
 
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
 .pb-\[100px\] {
   padding-bottom: 100px;
 }
 
-.pb-\[350px\] {
-  padding-bottom: 350px;
+.pb-\[250px\] {
+  padding-bottom: 250px;
 }
 
 .pt-20 {
@@ -1174,6 +1187,11 @@ video {
 
 .text-\[54px\] {
   font-size: 54px;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .text-lg {
@@ -1298,8 +1316,8 @@ video {
     line-height: 2rem;
   }
 
-  .max-\[560px\]\:text-\[38px\] {
-    font-size: 38px;
+  .max-\[560px\]\:text-\[34px\] {
+    font-size: 34px;
   }
 }
 
@@ -1447,6 +1465,11 @@ video {
   .sm\:pt-10 {
     padding-top: 2.5rem;
   }
+
+  .sm\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1577,6 +1600,10 @@ video {
 }
 
 @media (min-width: 1024px) {
+  .lg\:visible {
+    visibility: visible;
+  }
+
   .lg\:absolute {
     position: absolute;
   }
