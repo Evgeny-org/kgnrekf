@@ -2,7 +2,8 @@ header{
 	background-image: url('../img/DSC03305.JPG');
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-attachment: fixed;
+  position: fixed;
+  top: 0;
 /*	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;*/
