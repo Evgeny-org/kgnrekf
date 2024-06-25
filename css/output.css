@@ -688,6 +688,10 @@ video {
   margin-bottom: 1.25rem;
 }
 
+.mb-\[0px\] {
+  margin-bottom: 0px;
+}
+
 .mb-\[100px\] {
   margin-bottom: 100px;
 }
@@ -706,10 +710,6 @@ video {
 
 .mr-0 {
   margin-right: 0px;
-}
-
-.mr-10 {
-  margin-right: 2.5rem;
 }
 
 .mt-28 {
@@ -980,6 +980,10 @@ video {
 
 .gap-5 {
   gap: 1.25rem;
+}
+
+.gap-\[50px\] {
+  gap: 50px;
 }
 
 .overflow-hidden {
@@ -1353,10 +1357,6 @@ video {
     margin-right: auto;
   }
 
-  .min-\[0px\]\:mb-0 {
-    margin-bottom: 0px;
-  }
-
   .min-\[0px\]\:mb-32 {
     margin-bottom: 8rem;
   }
@@ -1438,6 +1438,26 @@ video {
   }
 }
 
+@media (min-width: 540px) {
+  .min-\[540px\]\:pb-\[400px\] {
+    padding-bottom: 400px;
+  }
+
+  .min-\[540px\]\:pt-\[200px\] {
+    padding-top: 200px;
+  }
+}
+
+@media (min-width: 560px) {
+  .min-\[560px\]\:mr-20 {
+    margin-right: 5rem;
+  }
+
+  .min-\[560px\]\:pl-24 {
+    padding-left: 6rem;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:mx-10 {
     margin-left: 2.5rem;
@@ -1450,6 +1470,14 @@ video {
 
   .sm\:w-\[450px\] {
     width: 450px;
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:gap-10 {
+    gap: 2.5rem;
   }
 
   .sm\:px-0 {
@@ -1600,6 +1628,16 @@ video {
 
   .md\:text-justify {
     text-align: justify;
+  }
+}
+
+@media (min-width: 800px) {
+  .min-\[800px\]\:pb-\[500px\] {
+    padding-bottom: 500px;
+  }
+
+  .min-\[800px\]\:pt-\[300px\] {
+    padding-top: 300px;
   }
 }
 
@@ -1828,6 +1866,18 @@ video {
     font-size: 2.25rem;
     line-height: 2.5rem;
   }
+
+  .min-\[1024px\]\:mb-\[200px\] {
+    margin-bottom: 200px;
+  }
+
+  .min-\[1024px\]\:pb-\[400px\] {
+    padding-bottom: 400px;
+  }
+
+  .min-\[1024px\]\:pt-\[200px\] {
+    padding-top: 200px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1865,6 +1915,38 @@ video {
   }
 }
 
+@media (min-width: 1366px) {
+  .min-\[1366px\]\:max-w-\[900px\] {
+    max-width: 900px;
+  }
+
+  .min-\[1366px\]\:pb-\[400px\] {
+    padding-bottom: 400px;
+  }
+
+  .min-\[1366px\]\:pt-\[200px\] {
+    padding-top: 200px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .min-\[1440px\]\:max-w-\[1000px\] {
+    max-width: 1000px;
+  }
+
+  .min-\[1440px\]\:justify-end {
+    justify-content: flex-end;
+  }
+
+  .min-\[1440px\]\:pb-\[400px\] {
+    padding-bottom: 400px;
+  }
+
+  .min-\[1440px\]\:pt-\[300px\] {
+    padding-top: 300px;
+  }
+}
+
 @media (min-width: 1536px) {
   .\32xl\:left-\[30\%\] {
     left: 30%;
@@ -1880,5 +1962,35 @@ video {
 
   .\32xl\:w-full {
     width: 100%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .min-\[1600px\]\:max-w-\[1100px\] {
+    max-width: 1100px;
+  }
+
+  .min-\[1600px\]\:pb-\[500px\] {
+    padding-bottom: 500px;
+  }
+
+  .min-\[1600px\]\:pt-\[350px\] {
+    padding-top: 350px;
+  }
+}
+
+@media (min-width: 1620px) {
+  .min-\[1620px\]\:left-\[20\%\] {
+    left: 20%;
+  }
+
+  .min-\[1620px\]\:w-full {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .min-\[1920px\]\:max-w-\[1400px\] {
+    max-width: 1400px;
   }
 }
