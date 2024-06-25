@@ -5,6 +5,10 @@ header{
 	background-size: cover;
 }
 
+hr{
+  border: 0;
+}
+
 /*Мероприятия*/
 .eventsBackGround_1, .eventsTitle_1, .eventsText_1, .eventsDate_1{
 	opacity: 0; 
