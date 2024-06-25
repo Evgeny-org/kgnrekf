@@ -127,7 +127,7 @@
         </nav>
         <nav class="fixed top-0 right-0 2xl:hidden z-30" x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="transform translate-x-[100%]" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform translate-x-[100%]">
             <ul class="text-2xl text-center mt-[100px] max-h-[90vh] overflow-y-auto pb-10">
-                <li class="flex justify-center gap-10 py-10 bg-[#23563D] max-[0px]:block md:hidden">
+                <li class="flex justify-center gap-10 py-10 bg-[#23563D] max-[0px]:block md:hidden" >
                     <a class="w-12" href="">
                         <svg class="fill-white hover:fill-[#53FFAB] transition duration-300" viewBox="0 0 34 23" xmlns="http://www.w3.org/2000/svg">
                             <path d="M32.9686 3.57281C32.7799 2.89967 32.4124 2.29025 31.905 1.80932C31.3833 1.31361 30.7439 0.959013 30.0471 0.779005C27.4394 0.0916634 16.9918 0.0916636 16.9918 0.0916636C12.6363 0.0421092 8.28188 0.260062 3.95311 0.744291C3.25632 0.937598 2.61809 1.30012 2.09521 1.7996C1.58144 2.29393 1.2093 2.90352 1.0149 3.57142C0.547919 6.08715 0.321025 8.64156 0.337283 11.2002C0.32062 13.7566 0.546957 16.3101 1.0149 18.829C1.20514 19.4941 1.57589 20.1009 2.09104 20.5911C2.6062 21.0813 3.24772 21.4354 3.95311 21.6228C6.59556 22.3088 16.9918 22.3088 16.9918 22.3088C21.3528 22.3584 25.7128 22.1404 30.0471 21.6561C30.7439 21.4761 31.3833 21.1215 31.905 20.6258C32.4188 20.1357 32.784 19.5261 32.9673 18.8623C33.4464 16.3476 33.6794 13.7921 33.6629 11.2322C33.699 8.66136 33.4663 6.09384 32.9686 3.57142V3.57281ZM13.6703 15.9547V6.44714L22.3628 11.2016L13.6703 15.9547Z" />
@@ -144,43 +144,44 @@
                         </svg>
                     </a>
                 </li>
-                <li class="bg-[#23563D]">
+                <li class="bg-[#23563D]" @click="open = !open">
                     <a href="#aboutSection" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
                         О нас
                     </a>
                 </li>
-                <li class="bg-[#23563D]">
+                <li class="bg-[#23563D]" @click="open = !open">
                     <a href="#menu" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
                         Меню
                     </a>
                 </li>
-                <li class="bg-[#23563D]">
+                <li class="bg-[#23563D]" @click="open = !open">
                     <a href="#events" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
                         Мероприятия
                     </a>
                 </li>
-                <li class="bg-[#23563D]">
+                <li class="bg-[#23563D]" @click="open = !open">
                     <a href="#stocks" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
                         Акции
                     </a>
                 </li>
-                <li class="bg-[#23563D]">
+                <li class="bg-[#23563D]" @click="open = !open">
                     <a href="#reviews" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
                         Отзывы
                     </a>
                 </li>
-                <li class="bg-[#23563D]">
+                <li class="bg-[#23563D]" @click="open = !open">
                     <a href="#photoGallery" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
                         Фотогаллерея
                     </a>
                 </li>
-                <li class="bg-[#23563D]">
+                <li class="bg-[#23563D]" @click="open = !open">
                     <a href="#contacts" class="block text-white hover:bg-[#53FFAB] hover:text-white px-28 py-10" style="text-decoration: none;">
                         Контакты
                     </a>
                 </li>
             </ul>
         </nav>
+
         <style>
             #scrollNav {
                 background-color: transparent;
@@ -339,20 +340,20 @@
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Американо.jpg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/01 МОМО-ВАФЛЯ МЯСНАЯ.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">АМЕРИКАНО</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Момо вафля мясная</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Бомбл кофе.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/02 МОМО-ВАФЛЯ РЫБНАЯ.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">БОМБЛ КОФЕ</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Момо вафля рыбная</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
@@ -361,20 +362,20 @@
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Капучино и Флэт Уайт.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/03 МОМО-ВАФЛЯ С МОЦАРЕЛЛОЙ.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">КАПУЧИНО И ФЛЭТ УАЙТ</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Момо вафля с моцареллой</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Кофе на песке.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/04 МОМО-ЗАВТРАК.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">КОФН НА ПЕСКЕ</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Момо-завтрак</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
@@ -383,20 +384,20 @@
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Латте малиновый.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/05 МОМО-ОМЛЕТ.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЛАТТЕ МАЛИНОВЫЙ</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Момо-омлет/глазунья</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Латте.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/06 и 09 Капучино и Флэт Уайт.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЛАТТЕ</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Капучино</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
@@ -405,20 +406,20 @@
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Лимонад1.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/07 Латте.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЛИМОНАД №1</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Латте</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Лимонад2.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/08 Американо.jpg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЛИМОНАД №2</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Американо</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
@@ -427,64 +428,42 @@
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Лимонад3.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/Лимонад3.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЛИМОНАД №3</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Флэт Уайт</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Матча-латте.jpeg" alt="">
-                            </div>
-                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">МАТЧА-ЛАТТЕ</h4>
-                                <hr class="w-12 h-1 bg-[#23563D]">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
-                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
-                            <div class="w-4/5 h-full mx-auto relative mb-16">
-                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Раф лаванда.jpeg" alt="">
-                            </div>
-                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">РАФ ЛАВАНДА</h4>
-                                <hr class="w-12 h-1 bg-[#23563D]">
-                            </div>
-                        </div>
-                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
-                            <div class="w-4/5 h-full mx-auto relative mb-16">
-                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Раф шоколад.jpeg" alt="">
-                            </div>
-                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">РАФ ШОКОЛАД</h4>
-                                <hr class="w-12 h-1 bg-[#23563D]">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
-                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
-                            <div class="w-4/5 h-full mx-auto relative mb-16">
-                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Раф.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/10 Раф.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
                                 <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">РАФ</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/11 Кофе по восточному.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Кофе в турке по-восточному</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Смузи.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/12 Какао.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">СМУЗИ</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Какао</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
@@ -493,20 +472,130 @@
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Сникерс кофе.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/13 Матча-латте.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">СНИКЕРС КОФЕ</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Матча латте</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
                         <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Фильтр кофе.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/14 Бомбл кофе.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ФИЛЬТР КОФЕ</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Бамбл кофе</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/Сникерс кофе.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Чай черный ассам</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="min-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/Фильтр кофе.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Чай гречишный</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/Фреш.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Чай травяной витаминный</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/Чай-латте.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Чай с чабрецом</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/19 Чай-латте.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Чай латте</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/Чай-латте.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Чай облепиховый</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/21 Фило со шпинатом.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Фило с шпинатом</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/Чай-латте.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Фило с зеленью</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[150px]">
+                        <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/23 Фило с тыквой.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Фило с тыквой</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                        <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/24 Полбяной с вишней.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Пирог полбяной с вишней</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
@@ -515,20 +604,32 @@
                         <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Фреш.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/Фреш.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ФРЕШ</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Пирог полбяной с клюквой</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
                         <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
                             <div class="w-4/5 h-full mx-auto relative mb-16">
                                 <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">1 259 руб</p>
-                                <img class="w-full h-full object-cover translate-y-10" src="img/Чай-латте.jpeg" alt="">
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/26 Полбяной с брусникой.jpeg" alt="">
                             </div>
                             <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
-                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">ЧАЙ-ЛАТТЕ</h4>
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Пирог полбяной с брусникой</h4>
+                                <hr class="w-12 h-1 bg-[#23563D]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex min-[0px]:flex-col lg:flex-row min-[0px]:mb-0 lg:mb-[100px]">
+                        <div class="in-[0xp]:w-[80%] lg:w-[48%] h-[250px] border-2 min-[0px]:mb-32 lg:mb-0 min-[0px]:mr-0 lg:mr-10 relative min-[0px]:left-1/2 min-[0px]:translate-x-[-50%] lg:left-0 lg:translate-x-[0px]">
+                            <div class="w-4/5 h-full mx-auto relative mb-16">
+                                <p class="text-white absolute top-5 -right-5 z-10 py-3 px-7 bg-[#23563D]">259 руб</p>
+                                <img class="w-full h-full object-cover translate-y-10" src="img/menu/27 Трубочка со сгущенкой.jpeg" alt="">
+                            </div>
+                            <div class="absolute left-1/2 translate-x-[-50%] flex items-center">
+                                <h4 class="text-xl text-[#23563D] mr-10 whitespace-nowrap" style="font-family: 'CirceBold';">Пирог полбяной с сгущенкой</h4>
                                 <hr class="w-12 h-1 bg-[#23563D]">
                             </div>
                         </div>
@@ -910,7 +1011,7 @@
 
         <div class="pt-[100px]" id="photoGallery"></div>
 
-        <section class="mb-[100px] py-[100px] bg-[rgba(83,255,171,.1)] pt-[100px]">
+        <section class="py-[100px] bg-[rgba(83,255,171,.1)] pt-[100px]">
             <!-- Фотогаллерея -->
             <div class="max-w-[1325px] mx-auto flex min-[0px]:flex-col md:flex-row px-10 sm:px-20 md:px-10">
                 <div class="min-[0px]:w-auto md:w-[15%] relative">
@@ -1043,7 +1144,9 @@
             </div>
         </section>
 
-        <section class="max-w-[1325px] mx-auto px-10 sm:px-20 md:px-10 mb-[50px] min-[1024px]:mb-[200px] overflow-hidden" id="contacts">
+        <div class="pt-[150px]" id="contacts"></div>
+
+        <section class="max-w-[1325px] mx-auto px-10 sm:px-20 md:px-10 mb-[150px] min-[1024px]:mb-[200px] overflow-hidden">
             <!-- Контакты -->
             <div class="min-[0px]:w-auto md:w-[15%] relative">
                 <div class="absolute min-[0px]:left-1/2 md:left-0 min-[0px]:translate-x-[-50%] md:translate-x-0 flex min-[0px]:flex-col md:flex-row items-center">
